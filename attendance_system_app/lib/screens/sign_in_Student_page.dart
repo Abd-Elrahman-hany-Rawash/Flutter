@@ -155,7 +155,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                         backgroundColor:
                             MaterialStateProperty.all(Colors.white70),
                       ),
-                      onPressed: () => SelectScren(context),
+                      onPressed: () => Navigator.of(context).pushNamed("StudentMaterial"),
                       child: const Text(
                         'Login ',
                         style: TextStyle(

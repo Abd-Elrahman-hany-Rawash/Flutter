@@ -3,6 +3,7 @@ import 'package:attendance_system_app/screens/After_sign_in_as_doctor.dart';
 import 'package:attendance_system_app/screens/sign_in_Doctor_page.dart';
 import 'package:attendance_system_app/screens/sign_in_Student_page.dart';
 import 'package:attendance_system_app/screens/start_page.dart';
+import 'package:attendance_system_app/screens/student_Materials_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         'Doctor': (context) => Sign_In_Doctor(),
         "After_sign_in_as_Doctor": (context) => After_sign_in_as_doctor(),
         "After_sign_in_as_Student": (context) => After_Sign_in_as_student(),
+        "StudentMaterial": (context) =>  StudentMaterials(),
       },
       debugShowCheckedModeBanner: false,
       // title: 'Flutter Demo',
