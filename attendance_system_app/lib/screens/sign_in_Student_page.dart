@@ -66,15 +66,11 @@ class MyStatefulWidget extends StatefulWidget {
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  void SelectScren(context) {
-    Navigator.of(context).pushNamed(
-      "After_sign_in_as_Student",
-    );
-  }
+
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController email = TextEditingController();
+    TextEditingController ID = TextEditingController();
     TextEditingController password = TextEditingController();
     return Container(
       alignment: Alignment.center,
@@ -96,7 +92,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: TextFormField(
-                  controller: email,
+                  controller: ID,
                   decoration: const InputDecoration(
                     icon: Icon(
                       Icons.person,
@@ -155,7 +151,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                         backgroundColor:
                             MaterialStateProperty.all(Colors.white70),
                       ),
-                      onPressed: () => Navigator.of(context).pushNamed("StudentMaterial"),
+                      onPressed: () => Navigator.of(context).pushReplacementNamed('StudentCources'),
                       child: const Text(
                         'Login ',
                         style: TextStyle(

@@ -12,23 +12,23 @@ class _Sign_In_DoctorState extends State<Sign_In_Doctor> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          /* appBar: AppBar(
-            title: const Text('Doctor Login'),
-            centerTitle: true,
-            backgroundColor: Colors.black,
-          ),*/
-          backgroundColor: Colors.blue,
+          //  appBar: AppBar(
+          //   title: const Text('Doctor Login'),
+          //   centerTitle: true,
+          // //  backgroundColor: Colors.black,
+          // ),
+          backgroundColor: Colors.black,
           body: SingleChildScrollView(
             child: Container(
               width: double.infinity,
               decoration: BoxDecoration(
                   gradient: LinearGradient(begin: Alignment.topCenter, colors: [
-                Colors.blue.shade100,
-                Colors.blue.shade900,
-                Colors.blue,
+                // Colors.blue.shade100,
                 // Colors.blue.shade900,
-                // Colors.blue.shade200,
-                // Colors.blue.shade900,
+                // Colors.blue,
+                 Colors.redAccent,
+                 Colors.greenAccent,
+                 Colors.blueAccent,
               ])),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -165,7 +165,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                         backgroundColor:
                             MaterialStateProperty.all(Colors.white70),
                       ),
-                      onPressed: () => SelectScren(context),
+                      onPressed: () => Navigator.of(context).pushNamed("StudentCources"),
                       child: const Text(
                         'Login ',
                         style: TextStyle(
