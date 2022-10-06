@@ -42,9 +42,7 @@ class _StudentMaterialsState extends State<StudentMaterials>
       appBar: AppBar(
         title: Text("All Cources"),
         centerTitle: true,
-        actions: [
-          IconButton(onPressed: (){}, icon: Icon(Icons.add))
-        ],
+        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.add))],
       ),
       backgroundColor: Color(0xffF5F5F5),
       body: Stack(
@@ -63,53 +61,60 @@ class _StudentMaterialsState extends State<StudentMaterials>
 
               Row(children: [
                 buildCard(
-                    CourceName: "Data Structure",
-                    ImageUrl: 'assets/images/DataStructure.png',
-                    CourceCode: "Fcai2021IT",
-                    DoctorName: " Besheer",
-                    RouteName: "/"),
+                  CourceName: "Data Structure",
+                  ImageUrl: 'assets/images/DataStructure.png',
+                  CourceCode: "Fcai2021IT",
+                  DoctorName: " Besheer",
+                  // RouteName:  showAlert(context)
+                ),
                 buildCard(
-                    CourceName: "Data Communication",
-                    ImageUrl: 'assets/images/Datacommunnication.png',
-                    CourceCode: "Fcai2021IT",
-                    DoctorName: "Iman Sanad",
-                    RouteName: "/"),
+                  CourceName: "Data Communication",
+                  ImageUrl: 'assets/images/Datacommunnication.png',
+                  CourceCode: "Fcai2021IT",
+                  DoctorName: "Iman Sanad",
+                  //  RouteName: showAlert(context)
+                ),
               ]),
               Row(children: [
                 buildCard(
-                    CourceName: "Advanced SoftWare ",
-                    ImageUrl: 'assets/images/Datacommunnication.png',
-                    CourceCode: "Fcai2021IT",
-                    DoctorName: "Iman Sanad",
-                    RouteName: "/"),
+                  CourceName: "Advanced SoftWare ",
+                  ImageUrl: 'assets/images/Datacommunnication.png',
+                  CourceCode: "Fcai2021IT",
+                  DoctorName: "Iman Sanad",
+                  //RouteName: showAlert(context)
+                ),
                 buildCard(
-                    CourceName: "Data Communication",
-                    ImageUrl: 'assets/images/Datacommunnication.png',
-                    CourceCode: "Fcai2021IT",
-                    DoctorName: "Iman Sanad",
-                    RouteName: "/"),
+                  CourceName: "Data Communication",
+                  ImageUrl: 'assets/images/Datacommunnication.png',
+                  CourceCode: "Fcai2021IT",
+                  DoctorName: "Iman Sanad",
+                  //RouteName: showAlert(context)
+                ),
               ]),
               Row(children: [
                 buildCard(
-                    CourceName: "Data Communication",
-                    ImageUrl: 'assets/images/Datacommunnication.png',
-                    CourceCode: "Fcai2021IT",
-                    DoctorName: "Iman Sanad",
-                    RouteName: "/"),
+                  CourceName: "Data Communication",
+                  ImageUrl: 'assets/images/Datacommunnication.png',
+                  CourceCode: "Fcai2021IT",
+                  DoctorName: "Iman Sanad",
+                  //RouteName: showAlert(context)
+                ),
                 buildCard(
-                    CourceName: "Data Communication",
-                    ImageUrl: 'assets/images/Datacommunnication.png',
-                    CourceCode: "Fcai2021IT",
-                    DoctorName: "Iman Sanad",
-                    RouteName: "/"),
+                  CourceName: "Data Communication",
+                  ImageUrl: 'assets/images/Datacommunnication.png',
+                  CourceCode: "Fcai2021IT",
+                  DoctorName: "Iman Sanad",
+                  //RouteName: showAlert(context)
+                ),
               ]),
               Row(children: [
                 buildCard(
-                    CourceName: "Data Communication",
-                    ImageUrl: 'assets/images/Datacommunnication.png',
-                    CourceCode: "Fcai2021IT",
-                    DoctorName: "Iman Sanad",
-                    RouteName: "/"),
+                  CourceName: "Data Communication",
+                  ImageUrl: 'assets/images/Datacommunnication.png',
+                  CourceCode: "Fcai2021IT",
+                  DoctorName: "Iman Sanad",
+                  //RouteName: showAlert(context)
+                ),
               ]),
             ],
           ),
@@ -119,23 +124,53 @@ class _StudentMaterialsState extends State<StudentMaterials>
     );
   }
 
-  Container buildCard(
-      {required String CourceName,
-      required String ImageUrl,
-      required String DoctorName,
-      required String CourceCode,
-      required String RouteName}) {
+  Set<Future> diaglog() {
+    return {
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: const Text('Lecture Time'),
+              content: const Text(
+                  'Do you want to choose previous lectures or current lecture?'),
+              actions: <Widget>[
+                TextButton(
+                    child: const Text("Previous lectures"),
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(
+                        "History",
+                      );
+                    }),
+                TextButton(
+                  onPressed: null,
+                  child: const Text("Current lecture"),
+                )
+              ],
+            );
+          })
+    };
+  }
+
+  Container buildCard({
+    required String CourceName,
+    required String ImageUrl,
+    required String DoctorName,
+    required String CourceCode,
+    //required var RouteName
+  }) {
     return Container(
       margin: EdgeInsets.only(top: 20),
       width: MediaQuery.of(context).size.width / 2,
       height: MediaQuery.of(context).size.height / 2.9,
       child: InkWell(
-        onTap: () => Navigator.of(context).pushNamed(RouteName),
+        onTap: () {
+          diaglog();
+        },
         child: Card(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
           elevation: 4,
-          margin: EdgeInsets.only(left: 10,top: 10,right:10),
+          margin: EdgeInsets.only(left: 10, top: 10, right: 10),
           child: Column(
             children: [
               ClipRRect(
@@ -150,7 +185,7 @@ class _StudentMaterialsState extends State<StudentMaterials>
                 ),
               ),
               Padding(
-                  padding: EdgeInsets.only(left:10,top: 10,right: 10 ),
+                  padding: EdgeInsets.only(left: 10, top: 10, right: 10),
                   child: Column(
                     children: [
                       Row(

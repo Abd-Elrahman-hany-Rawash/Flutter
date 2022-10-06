@@ -30,10 +30,13 @@ class _Start_PageState extends State<Start_Page> {
             Row(
               children: [
                 Container(
-                 // color: Colors.blue.shade900,
-                  height: MediaQuery.of(context).size.height/1.35,
+                  // color: Colors.blue.shade900,
+                  height: MediaQuery.of(context).size.height / 1.35,
                   width: MediaQuery.of(context).size.width,
-                  child: Image.asset("assets/images/4.png",fit: BoxFit.cover,),
+                  child: Image.asset(
+                    "assets/images/4.png",
+                    fit: BoxFit.cover,
+                  ),
                 )
               ],
             ),

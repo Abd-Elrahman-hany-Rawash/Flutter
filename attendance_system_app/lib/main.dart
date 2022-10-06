@@ -1,4 +1,4 @@
-
+import 'package:attendance_system_app/screens/history_lectuers.dart';
 import 'package:attendance_system_app/screens/sign_in_Doctor_page.dart';
 import 'package:attendance_system_app/screens/sign_in_Student_page.dart';
 import 'package:attendance_system_app/screens/start_page.dart';
@@ -20,7 +20,8 @@ class MyApp extends StatelessWidget {
         '/': (context) => const Start_Page(),
         'student': (context) => Sign_In_Student(),
         'Doctor': (context) => Sign_In_Doctor(),
-        "StudentCources": (context) =>  StudentMaterials(),
+        "StudentCources": (context) => StudentMaterials(),
+        "History": (context) => HistoryPage(),
       },
       debugShowCheckedModeBanner: false,
       // title: 'Flutter Demo',

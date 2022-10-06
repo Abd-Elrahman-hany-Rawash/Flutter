@@ -67,7 +67,6 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-
   @override
   Widget build(BuildContext context) {
     TextEditingController ID = TextEditingController();
@@ -151,7 +150,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                         backgroundColor:
                             MaterialStateProperty.all(Colors.white70),
                       ),
-                      onPressed: () => Navigator.of(context).pushReplacementNamed('StudentCources'),
+                      onPressed: () => Navigator.of(context)
+                          .pushReplacementNamed('StudentCources'),
                       child: const Text(
                         'Login ',
                         style: TextStyle(
