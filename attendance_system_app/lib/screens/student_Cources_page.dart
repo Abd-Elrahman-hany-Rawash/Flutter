@@ -124,31 +124,50 @@ class _StudentMaterialsState extends State<StudentMaterials>
     );
   }
 
-  Set<Future> diaglog() {
+  diaglog() {
     return {
       showDialog(
           context: context,
-          builder: (context) {
-            return AlertDialog(
-              title: const Text('Lecture Time'),
-              content: const Text(
-                  'Do you want to choose previous lectures or current lecture?'),
-              actions: <Widget>[
-                TextButton(
-                    child: const Text("Previous lectures"),
-                    onPressed: () {
-                      Navigator.of(context).pushNamed(
-                        "History",
-                      );
-                    }),
-                TextButton(
-                  onPressed: null,
-                  child: const Text("Current lecture"),
-                )
-              ],
-            );
+          builder: (BuildContext) {
+            return Alert();
           })
     };
+  }
+
+  Alert() {
+    return AlertDialog(
+      title: const Text('Select lecture',style: TextStyle(fontSize: 25),),
+      content: Container(
+        height: MediaQuery.of(context).size.height / 10,
+        child: Column(children: [
+          Divider(
+            color: Colors.black,
+          ),
+          Text('Do you want to choose previous lectures or current lecture ?',style: TextStyle(fontSize: 19),),
+        ]),
+      ),
+      actions: <Widget>[
+        Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          TextButton(
+            child: const Text("Previous lectures"),
+            onPressed: () {
+              Navigator.of(context).pushNamed(
+                "History",
+              );
+            },
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed(
+                "Doctor",
+              );
+            },
+            child: const Text("Current lecture"),
+          )
+        ]),
+      ],
+    );
   }
 
   Container buildCard({
