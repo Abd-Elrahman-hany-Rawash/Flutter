@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 import '../widget/CustomizedButton.dart';
@@ -25,7 +27,7 @@ class _Start_PageState extends State<Start_Page> {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          color: Colors.blue,
+          color: Color.fromARGB(255, 35, 57, 91),
           child: Column(children: [
             Row(
               children: [
@@ -35,37 +37,39 @@ class _Start_PageState extends State<Start_Page> {
                   width: MediaQuery.of(context).size.width,
                   child: Image.asset(
                     "assets/images/4.png",
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fill,
                   ),
                 )
               ],
             ),
 
             // SizedBox(height: 20, ),
+            Row(              mainAxisAlignment: MainAxisAlignment.center,
+
+              children: [
+                CustomizedButton(
+                  buttonText: "Doctor",
+                  textColor: Colors.white,
+                  buttonColor: Color.fromARGB(255, 1, 167, 89),
+                  onPressed: () {
+                    SelectScren("Doctor");
+                  },
+                ),
+              ],
+            ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CustomizedButton(
                   buttonText: "Student",
                   textColor: Colors.white,
-                  buttonColor: Colors.black,
+                  buttonColor: Color.fromARGB(255, 1, 167, 89),
                   onPressed: () {
                     SelectScren("Student");
                   },
                 ),
               ],
             ),
-            Row(
-              children: [
-                CustomizedButton(
-                  buttonText: "Doctor",
-                  textColor: Colors.black,
-                  buttonColor: Colors.white,
-                  onPressed: () {
-                    SelectScren("Doctor");
-                  },
-                ),
-              ],
-            )
           ]),
         ),
       ),

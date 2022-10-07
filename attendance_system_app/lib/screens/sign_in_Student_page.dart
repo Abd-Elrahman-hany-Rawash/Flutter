@@ -9,46 +9,51 @@ class Sign_In_Student extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.blue,
+
+        backgroundColor:  Color.fromARGB(255, 15,43, 77),
         body: SingleChildScrollView(
           child: Container(
             width: double.infinity,
             decoration: BoxDecoration(
                 gradient: LinearGradient(begin: Alignment.topCenter, colors: [
-              Colors.blue.shade100,
-              Colors.blue.shade900,
-              Colors.blue,
+                  Color.fromARGB(255, 15,43, 77),
+                  Color.fromARGB(255, 15,43, 77),
+              // Colors.blue.shade100,
+              // Colors.blue.shade900,
+              // Colors.blue,
               // Colors.blue.shade900,
               // Colors.blue.shade200,
               // Colors.blue.shade900,
             ])),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 80),
-                // #login, #welcome
-                Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        "Login",
-                        style: TextStyle(color: Colors.white, fontSize: 40),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "Welcome Student",
-                        style: TextStyle(color: Colors.white, fontSize: 20),
-                      ),
-                    ],
+            child: Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 80),
+                  // #login, #welcome
+                  Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text(
+                          "Login",
+                          style: TextStyle(color: Colors.white, fontSize: 40),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Welcome Student",
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                const MyStatefulWidget(),
-              ],
+                  const SizedBox(height: 20),
+                  const MyStatefulWidget(),
+                ],
+              ),
             ),
           ),
         ),
@@ -69,6 +74,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
+   const Color mycolor=Colors.white;
     TextEditingController ID = TextEditingController();
     TextEditingController password = TextEditingController();
     return Container(
@@ -95,7 +101,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   decoration: const InputDecoration(
                     icon: Icon(
                       Icons.person,
-                      color: Colors.white,
+                      color:mycolor,
                     ),
                     labelText: "ID",
                     labelStyle: TextStyle(color: Colors.white, fontSize: 25),
@@ -118,7 +124,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   decoration: const InputDecoration(
                     icon: Icon(
                       Icons.lock,
-                      color: Colors.white,
+                      color: mycolor,
                     ),
                     labelText: "password",
                     labelStyle: TextStyle(color: Colors.white, fontSize: 25),
@@ -148,14 +154,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                               borderRadius: BorderRadius.circular(30.0)),
                         ),
                         backgroundColor:
-                            MaterialStateProperty.all(Colors.white70),
+                            MaterialStateProperty.all(Colors.white),
                       ),
                       onPressed: () => Navigator.of(context)
                           .pushReplacementNamed('StudentCources'),
                       child: const Text(
                         'Login ',
                         style: TextStyle(
-                          fontSize: 30,
+                          fontSize: 28,
                           color: Colors.black,
                         ),
                       ),

@@ -17,7 +17,7 @@ class _Sign_In_DoctorState extends State<Sign_In_Doctor> {
           //   centerTitle: true,
           // //  backgroundColor: Colors.black,
           // ),
-          backgroundColor: Colors.black,
+          backgroundColor: Color.fromARGB(255, 15, 43, 77),
           body: SingleChildScrollView(
             child: Container(
               width: double.infinity,
@@ -25,10 +25,8 @@ class _Sign_In_DoctorState extends State<Sign_In_Doctor> {
                   gradient: LinearGradient(begin: Alignment.topCenter, colors: [
                 // Colors.blue.shade100,
                 // Colors.blue.shade900,
-                // Colors.blue,
-                 Colors.redAccent,
-                 Colors.greenAccent,
-                 Colors.blueAccent,
+                Color.fromARGB(255, 15, 43, 77),
+                Color.fromARGB(255, 15, 43, 77),
               ])),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -163,13 +161,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                               borderRadius: BorderRadius.circular(30.0)),
                         ),
                         backgroundColor:
-                            MaterialStateProperty.all(Colors.white70),
+                            MaterialStateProperty.all(Colors.white),
                       ),
-                      onPressed: () => Navigator.of(context).pushNamed("StudentCources"),
+                      onPressed: () =>
+                          Navigator.of(context).pushNamed("StudentCources"),
                       child: const Text(
                         'Login ',
                         style: TextStyle(
-                          fontSize: 30,
+                          fontSize: 28,
                           color: Colors.black,
                         ),
                       ),
