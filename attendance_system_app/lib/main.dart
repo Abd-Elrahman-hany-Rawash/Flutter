@@ -18,10 +18,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       routes: {
         '/': (context) => const Start_Page(),
-        'student': (context) => Sign_In_Student(),
+        'student': (context) => const Sign_In_Student(),
         'Doctor': (context) => Sign_In_Doctor(),
         "StudentCources": (context) => StudentMaterials(),
-        "History": (context) => HistoryPage(),
+        "History": (context) => const HistoryPage(),
       },
       debugShowCheckedModeBanner: false,
       // title: 'Flutter Demo',

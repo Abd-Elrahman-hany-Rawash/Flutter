@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class StudentMaterials extends StatefulWidget {
+  const StudentMaterials({Key? key}) : super(key: key);
+
   @override
   _StudentMaterialsState createState() => _StudentMaterialsState();
 }
@@ -17,7 +19,7 @@ class _StudentMaterialsState extends State<StudentMaterials>
 
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 1),
+      duration: const Duration(seconds: 1),
     );
 
     _animation = Tween<double>(begin: 0, end: 1)
@@ -37,89 +39,160 @@ class _StudentMaterialsState extends State<StudentMaterials>
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController CourceName = TextEditingController();
+    TextEditingController CourceCode = TextEditingController();
     double _w = MediaQuery.of(context).size.width;
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("All Cources"),
-        centerTitle: true,
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.add))],
-      ),
-      backgroundColor: Color(0xffF5F5F5),
-      body: Stack(
-        children: [
-          ListView(
-            // physics:
-            // BouncingScrollPhysics(parent: const AlwaysScrollableScrollPhysics()),
-            children: [
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.center,
-              //   children: [
-              //     searchBar(),
-              //   ],
-              // ),
-              // SizedBox(height: _w / 20),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("All Cources"),
+          centerTitle: true,
+          actions: [
+            IconButton(
+                onPressed: () async {
+                  return showMaterialModalBottomSheet(
+                    context: context,
+                    builder: (context) => SingleChildScrollView(
+                      child: Card(
+                       elevation: 10,
+                        child: Form(
+                          child: Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 10),
+                                  child: TextFormField(
+                                    controller: CourceName,
+                                    decoration: const InputDecoration(
+                                      icon: Icon(
+                                        Icons.person,
+                                        color: Colors.black,
+                                      ),
+                                      labelText: "CourceName",
+                                      labelStyle: TextStyle(
+                                          color: Colors.black, fontSize: 25),
+                                      hintText: 'Enter the Name of the Cource',
+                                    ),
+                                    validator: (String? value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Please enter Cource Code';
+                                      }
+                                      return null;
+                                    },
+                                    keyboardType: TextInputType.number,
+                                  ),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 10),
+                                  child: TextFormField(
+                                    controller: CourceName,
+                                    decoration: const InputDecoration(
+                                      icon: Icon(
+                                        Icons.person,
+                                        color: Colors.black,
+                                      ),
+                                      labelText: "CourceName",
+                                      labelStyle: TextStyle(
+                                          color: Colors.black, fontSize: 25),
+                                      hintText: 'Enter the Name of the Cource',
+                                    ),
+                                    validator: (String? value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Please enter Cource Code';
+                                      }
+                                      return null;
+                                    },
+                                    keyboardType: TextInputType.number,
+                                  ),
+                                ),
+                                TextButton(onPressed: (){}, child: Text("Submit"))
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.add))
+          ],
+        ),
+        backgroundColor: const Color(0xffF5F5F5),
+        body: ListView(
+          // physics:
+          // BouncingScrollPhysics(parent: const AlwaysScrollableScrollPhysics()),
+          children: [
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: [
+            //     searchBar(),
+            //   ],
+            // ),
+            // SizedBox(height: _w / 20),
 
-              Row(children: [
-                buildCard(
-                  CourceName: "Data Structure",
-                  ImageUrl: 'assets/images/DataStructure.png',
-                  CourceCode: "Fcai2021IT",
-                  DoctorName: " Besheer",
-                  // RouteName:  showAlert(context)
-                ),
-                buildCard(
-                  CourceName: "Data Communication",
-                  ImageUrl: 'assets/images/Datacommunnication.png',
-                  CourceCode: "Fcai2021IT",
-                  DoctorName: "Iman Sanad",
-                  //  RouteName: showAlert(context)
-                ),
-              ]),
-              Row(children: [
-                buildCard(
-                  CourceName: "Advanced SoftWare ",
-                  ImageUrl: 'assets/images/Datacommunnication.png',
-                  CourceCode: "Fcai2021IT",
-                  DoctorName: "Iman Sanad",
-                  //RouteName: showAlert(context)
-                ),
-                buildCard(
-                  CourceName: "Data Communication",
-                  ImageUrl: 'assets/images/Datacommunnication.png',
-                  CourceCode: "Fcai2021IT",
-                  DoctorName: "Iman Sanad",
-                  //RouteName: showAlert(context)
-                ),
-              ]),
-              Row(children: [
-                buildCard(
-                  CourceName: "Data Communication",
-                  ImageUrl: 'assets/images/Datacommunnication.png',
-                  CourceCode: "Fcai2021IT",
-                  DoctorName: "Iman Sanad",
-                  //RouteName: showAlert(context)
-                ),
-                buildCard(
-                  CourceName: "Data Communication",
-                  ImageUrl: 'assets/images/Datacommunnication.png',
-                  CourceCode: "Fcai2021IT",
-                  DoctorName: "Iman Sanad",
-                  //RouteName: showAlert(context)
-                ),
-              ]),
-              Row(children: [
-                buildCard(
-                  CourceName: "Data Communication",
-                  ImageUrl: 'assets/images/Datacommunnication.png',
-                  CourceCode: "Fcai2021IT",
-                  DoctorName: "Iman Sanad",
-                  //RouteName: showAlert(context)
-                ),
-              ]),
-            ],
-          ),
-          //settingIcon(),
-        ],
+            Row(children: [
+              buildCard(
+                CourceName: "Data Structure",
+                ImageUrl: 'assets/images/DataStructure.png',
+                CourceCode: "Fcai2021IT",
+                DoctorName: " Besheer",
+                // RouteName:  showAlert(context)
+              ),
+              buildCard(
+                CourceName: "Data Communication",
+                ImageUrl: 'assets/images/Datacommunnication.png',
+                CourceCode: "Fcai2021IT",
+                DoctorName: "Iman Sanad",
+                //  RouteName: showAlert(context)
+              ),
+            ]),
+            Row(children: [
+              buildCard(
+                CourceName: "Advanced SoftWare ",
+                ImageUrl: 'assets/images/Datacommunnication.png',
+                CourceCode: "Fcai2021IT",
+                DoctorName: "Iman Sanad",
+                //RouteName: showAlert(context)
+              ),
+              buildCard(
+                CourceName: "Data Communication",
+                ImageUrl: 'assets/images/Datacommunnication.png',
+                CourceCode: "Fcai2021IT",
+                DoctorName: "Iman Sanad",
+                //RouteName: showAlert(context)
+              ),
+            ]),
+            Row(children: [
+              buildCard(
+                CourceName: "Data Communication",
+                ImageUrl: 'assets/images/Datacommunnication.png',
+                CourceCode: "Fcai2021IT",
+                DoctorName: "Iman Sanad",
+                //RouteName: showAlert(context)
+              ),
+              buildCard(
+                CourceName: "Data Communication",
+                ImageUrl: 'assets/images/Datacommunnication.png',
+                CourceCode: "Fcai2021IT",
+                DoctorName: "Iman Sanad",
+                //RouteName: showAlert(context)
+              ),
+            ]),
+            Row(children: [
+              buildCard(
+                CourceName: "Data Communication",
+                ImageUrl: 'assets/images/Datacommunnication.png',
+                CourceCode: "Fcai2021IT",
+                DoctorName: "Iman Sanad",
+                //RouteName: showAlert(context)
+              ),
+            ]),
+          ],
+        ),
+        //settingIcon(),
       ),
     );
   }
@@ -136,19 +209,24 @@ class _StudentMaterialsState extends State<StudentMaterials>
 
   Alert() {
     return AlertDialog(
-      title: const Text('Select lecture',style: TextStyle(fontSize: 25),),
+      title: const Text(
+        'Select lecture',
+        style: TextStyle(fontSize: 25),
+      ),
       content: Container(
         height: MediaQuery.of(context).size.height / 10,
         child: Column(children: [
           Divider(
             color: Colors.black,
           ),
-          Text('Do you want to choose previous lectures or current lecture ?',style: TextStyle(fontSize: 19),),
+          Text(
+            'Do you want to choose previous lectures or current lecture ?',
+            style: TextStyle(fontSize: 19),
+          ),
         ]),
       ),
       actions: <Widget>[
-        Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+        Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           TextButton(
             child: const Text("Previous lectures"),
             onPressed: () {

@@ -70,12 +70,6 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  void SelectScren(context) {
-    Navigator.of(context).pushNamed(
-      "After_sign_in_as_Doctor",
-    );
-  }
-
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
