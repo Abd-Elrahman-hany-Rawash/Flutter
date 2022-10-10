@@ -21,19 +21,21 @@ class _HistoryPageState extends State<HistoryPage> {
         ),
         body: ListView(
           children: [
-            buildExpansionTile(),
-            buildExpansionTile(),
-            buildExpansionTile(),
-            buildExpansionTile(),
+            buildExpansionTile(LectureNumber: "1",Attend: false),
+            buildExpansionTile(LectureNumber: "2",Attend: true),
+            buildExpansionTile(LectureNumber: "3",Attend: true),
+            buildExpansionTile(LectureNumber: "4",Attend: true),
+            buildExpansionTile(LectureNumber: "5",Attend: false),
+
 
           ],
         ));
   }
 
-  ExpansionTile buildExpansionTile() {
+  ExpansionTile buildExpansionTile({required String LectureNumber, required bool Attend}) {
     return ExpansionTile(
-            title: Text("lecture 1"),
-            children: [
+            title: Text("Lecture "+LectureNumber),
+            children: [Attend?
               Container(
                 padding: EdgeInsets.only(left: 10,right: 10,bottom: 10),
                 child: Card(
@@ -44,18 +46,38 @@ class _HistoryPageState extends State<HistoryPage> {
                     child: Column(
                       children:[
                         Text(
-                          'You have been  attended This lecture ',
+                          'You have been  attended The lecture ',
                           style:
                           const TextStyle(fontSize: 22, color: Colors.black),
-                        ),Text(
-                          'At ${DateTime.now()}',
-                          style:
-                          const TextStyle(fontSize: 25, color: Colors.black),
-                        ),]
+                         )//,Text(
+                        //   'At ${DateTime.now()}',
+                        //   style:
+                        //   const TextStyle(fontSize: 25, color: Colors.black),
+                        // ),
+
+                      ]
                     ),
                   ),
                 ),
-              )
+              ):Container(
+              padding: EdgeInsets.only(left: 10,right: 10,bottom: 10),
+              child: Card(
+                elevation: 2,
+                color: Colors.red,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                      children:[
+                        Text(
+                          'You did not attend the lecture'
+    ,
+                          style:
+                          const TextStyle(fontSize: 22, color: Colors.black),
+                        ),]
+                  ),
+                ),
+              ),
+            )
             ],
           );
   }

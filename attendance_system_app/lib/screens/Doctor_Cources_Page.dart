@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
-class StudentCources extends StatefulWidget {
-  const StudentCources({Key? key}) : super(key: key);
+class DoctorCources extends StatefulWidget {
+  const DoctorCources({Key? key}) : super(key: key);
 
   @override
-  _StudentCourcesState createState() => _StudentCourcesState();
+  _DoctorCourcesState createState() => _DoctorCourcesState();
 }
 
-class _StudentCourcesState extends State<StudentCources>
+class _DoctorCourcesState extends State<DoctorCources>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
@@ -47,82 +47,6 @@ class _StudentCourcesState extends State<StudentCources>
         appBar: AppBar(
           title: const Text("All Cources"),
           centerTitle: true,
-          actions: [
-            IconButton(
-                onPressed: () async {
-                  return showModalBottomSheet(
-                    isScrollControlled: true,
-                    context: context,
-                    builder: (context) => SingleChildScrollView(
-                      child: Card(
-                        elevation: 10,
-                        child: Form(
-                          child: Padding(
-                            padding: EdgeInsets.all(20),
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 10),
-                                  child: TextFormField(
-                                    controller: CourceName,
-                                    decoration: const InputDecoration(
-                                      icon: Icon(
-                                        Icons.school,
-                                        color: Colors.blueAccent,
-                                      ),
-                                      labelText: "CourceName",
-                                      labelStyle: TextStyle(
-                                          color: Colors.black, fontSize: 25),
-                                      hintText: 'Enter the Name of the Cource',
-                                    ),
-                                    validator: (String? value) {
-                                      if (value == null || value.isEmpty) {
-                                        return 'Please enter Cource Name';
-                                      }
-                                      return null;
-                                    },
-                                    keyboardType: TextInputType.number,
-                                  ),
-                                ),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 10),
-                                  child: TextFormField(
-                                    controller: CourceName,
-                                    decoration: const InputDecoration(
-                                      icon: Icon(
-                                        Icons.code,
-                                        color: Colors.blueAccent,
-                                      ),
-                                      labelText: "CourceCode",
-                                      labelStyle: TextStyle(
-                                          color: Colors.black, fontSize: 25),
-                                      hintText: 'Enter the Code of the Cource',
-                                    ),
-                                    validator: (String? value) {
-                                      if (value == null || value.isEmpty) {
-                                        return 'Please enter Cource Code';
-                                      }
-                                      return null;
-                                    },
-                                    keyboardType: TextInputType.number,
-                                  ),
-                                ),
-                                TextButton(
-                                  onPressed: () {},
-                                  child: Text("Submit"),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  );
-                },
-                icon: const Icon(Icons.add))
-          ],
         ),
         backgroundColor: const Color(0xffF5F5F5),
         body: ListView(
@@ -139,11 +63,11 @@ class _StudentCourcesState extends State<StudentCources>
 
             Row(children: [
               buildCard(
-                CourceName: "Data Structure",
-                ImageUrl: 'assets/images/DataStructure.png',
+                CourceName: "Advanced SoftWare ",
+                ImageUrl: 'assets/images/Datacommunnication.png',
                 CourceCode: "Fcai2021IT",
-                DoctorName: " Besheer",
-                // RouteName:  showAlert(context)
+                DoctorName: "Iman Sanad",
+                //RouteName: showAlert(context)
               ),
               buildCard(
                 CourceName: "Data Communication",
@@ -196,8 +120,13 @@ class _StudentCourcesState extends State<StudentCources>
             ]),
           ],
         ),
-        //settingIcon(),
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed: () {},
+          icon: Icon(Icons.add),
+          label: Text("add Cource"),
+        ),
       ),
+      //settingIcon(),
     );
   }
 
@@ -240,11 +169,7 @@ class _StudentCourcesState extends State<StudentCources>
             },
           ),
           TextButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed(
-                "Doctor",
-              );
-            },
+            onPressed: () {},
             child: const Text("Current lecture"),
           )
         ]),
@@ -262,70 +187,68 @@ class _StudentCourcesState extends State<StudentCources>
     return Container(
       margin: EdgeInsets.only(top: 20),
       width: MediaQuery.of(context).size.width / 2,
-      height: MediaQuery.of(context).size.height / 2.9,
-      child: InkWell(
-        onTap: () {
-          diaglog();
-        },
+      height: MediaQuery.of(context).size.height * .2887,
+      child:InkWell(onTap: () {
+        diaglog();
+      },
         child: Card(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          elevation: 4,
-          margin: EdgeInsets.only(left: 10, top: 10, right: 10),
-          child: Column(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(15),
-                    topRight: Radius.circular(15)),
-                child: Image.asset(
-                  ImageUrl,
-                  height: MediaQuery.of(context).size.height / 4.3,
-                  width: MediaQuery.of(context).size.width / 2,
-                  fit: BoxFit.fill,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+            elevation: 4,
+            //margin: EdgeInsets.only(left: 10, top: 10, right: 10),
+            child: Column(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(15),
+                      topRight: Radius.circular(15)),
+                  child: Image.asset(
+                    ImageUrl,
+                    height: MediaQuery.of(context).size.height / 4.3,
+                    width: MediaQuery.of(context).size.width / 2,
+                    fit: BoxFit.fill,
+                  ),
                 ),
-              ),
-              Padding(
-                  padding: EdgeInsets.only(left: 10, top: 10, right: 10),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Cource Name : ${CourceName}",
-                            style: TextStyle(fontSize: 10),
-                            overflow: TextOverflow.fade,
-                            maxLines: 1,
-                            softWrap: false,
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Cource Code : ${CourceCode}",
-                            style: TextStyle(fontSize: 12),
-                            overflow: TextOverflow.clip,
-                          )
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Dr : ${DoctorName}",
-                            style: TextStyle(fontSize: 14),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ))
-            ],
+                 Container(
+                   color: Colors.redAccent,
+                    width: MediaQuery.of(context).size.width * .5,
+                   height:MediaQuery.of(context).size.width * .08 ,
+                   child: InkWell(onTap: (){},
+                       child: Icon(Icons.delete),
+                   ),
+                 ),
+                // Padding(
+                //     padding: EdgeInsets.only(left: 10, right: 10),
+                //     child: Row(
+                //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //       children: [
+                //         Container(
+                //           width: MediaQuery.of(context).size.width * .23,
+                //           child: ElevatedButton(
+                //             style: ButtonStyle(
+                //                 backgroundColor:
+                //                     MaterialStateProperty.all(Colors.blueAccent)),
+                //             onPressed: () => diaglog(),
+                //             child: Icon(Icons.remove_red_eye),
+                //           ),
+                //         ),
+                //         Container(
+                //           width: MediaQuery.of(context).size.width * .15,
+                //           child: ElevatedButton(
+                //             style: ButtonStyle(
+                //                 backgroundColor:
+                //                     MaterialStateProperty.all(Colors.redAccent)),
+                //             onPressed: () {},
+                //             child: Icon(Icons.delete),
+                //           ),
+                //         )
+                //       ],
+                //     ))
+              ],
+            ),
           ),
-        ),
       ),
+
     );
   }
 

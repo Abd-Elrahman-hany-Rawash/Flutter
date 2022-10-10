@@ -158,7 +158,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                             MaterialStateProperty.all(Colors.white),
                       ),
                       onPressed: () =>
-                          Navigator.of(context).pushNamed("StudentCources"),
+                          Navigator.of(context).pushNamed("DoctorCources"),
                       child: const Text(
                         'Login ',
                         style: TextStyle(
