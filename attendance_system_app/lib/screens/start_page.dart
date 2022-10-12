@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 import '../widget/CustomizedButton.dart';
@@ -44,8 +42,8 @@ class _Start_PageState extends State<Start_Page> {
             ),
 
             // SizedBox(height: 20, ),
-            Row(              mainAxisAlignment: MainAxisAlignment.center,
-
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CustomizedButton(
                   buttonText: "Doctor",

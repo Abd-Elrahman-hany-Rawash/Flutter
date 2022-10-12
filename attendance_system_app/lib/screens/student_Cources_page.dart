@@ -45,86 +45,17 @@ class _StudentCourcesState extends State<StudentCources>
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("All Cources"),
-          centerTitle: true,
-          actions: [
-            IconButton(
-                onPressed: () async {
-                  return showModalBottomSheet(
-                    isScrollControlled: true,
-                    context: context,
-                    builder: (context) => SingleChildScrollView(
-                      child: Card(
-                        elevation: 10,
-                        child: Form(
-                          child: Padding(
-                            padding: EdgeInsets.all(20),
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 10),
-                                  child: TextFormField(
-                                    controller: CourceName,
-                                    decoration: const InputDecoration(
-                                      icon: Icon(
-                                        Icons.school,
-                                        color: Colors.blueAccent,
-                                      ),
-                                      labelText: "CourceName",
-                                      labelStyle: TextStyle(
-                                          color: Colors.black, fontSize: 25),
-                                      hintText: 'Enter the Name of the Cource',
-                                    ),
-                                    validator: (String? value) {
-                                      if (value == null || value.isEmpty) {
-                                        return 'Please enter Cource Name';
-                                      }
-                                      return null;
-                                    },
-                                    keyboardType: TextInputType.number,
-                                  ),
-                                ),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 10),
-                                  child: TextFormField(
-                                    controller: CourceName,
-                                    decoration: const InputDecoration(
-                                      icon: Icon(
-                                        Icons.code,
-                                        color: Colors.blueAccent,
-                                      ),
-                                      labelText: "CourceCode",
-                                      labelStyle: TextStyle(
-                                          color: Colors.black, fontSize: 25),
-                                      hintText: 'Enter the Code of the Cource',
-                                    ),
-                                    validator: (String? value) {
-                                      if (value == null || value.isEmpty) {
-                                        return 'Please enter Cource Code';
-                                      }
-                                      return null;
-                                    },
-                                    keyboardType: TextInputType.number,
-                                  ),
-                                ),
-                                TextButton(
-                                  onPressed: () {},
-                                  child: Text("Submit"),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  );
-                },
-                icon: const Icon(Icons.add))
-          ],
-        ),
-        backgroundColor: const Color(0xffF5F5F5),
+            title: const Text("Registerd Courses"),
+            centerTitle: true,
+            actions: [
+              IconButton(
+                  icon: const Icon(Icons.add),
+                  onPressed: () {
+                    Navigator.of(context)
+                        .pushReplacementNamed('NewStudentCourse');
+                  })
+            ]),
+
         body: ListView(
           // physics:
           // BouncingScrollPhysics(parent: const AlwaysScrollableScrollPhysics()),
