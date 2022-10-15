@@ -25,15 +25,14 @@ class MyApp extends StatelessWidget {
         'Doctor': (context) => Sign_In_Doctor(),
         "StudentCources": (context) => StudentCources(),
         "History": (context) => const HistoryPage(),
-        "DoctorCources":(context)=> DoctorCources(),
-        "NewStudentCourse":(context)=> const NewStudentCourse()
+        "DoctorCources": (context) => DoctorCources(),
+        "NewStudentCourse": (context) => const NewStudentCourse()
       },
       debugShowCheckedModeBanner: false,
       // title: 'Flutter Demo',
       theme: ThemeData(
-
-           primarySwatch: Colors.blueGrey,
-          ),
+        primarySwatch: Colors.blue,
+      ),
     );
   }
 }
