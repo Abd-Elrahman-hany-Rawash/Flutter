@@ -42,88 +42,96 @@ class _DoctorCourcesState extends State<DoctorCources>
     TextEditingController CourceName = TextEditingController();
     TextEditingController CourceCode = TextEditingController();
     double _w = MediaQuery.of(context).size.width;
+    var appbar = AppBar(
+      title: const Text("All Cources"),
+      centerTitle: true,
+    );
+    var Myheight = (MediaQuery.of(context).size.height -
+        appbar.preferredSize.height -
+        MediaQuery.of(context).padding.top);
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text("All Cources"),
-          centerTitle: true,
-        ),
+        appBar: appbar,
         backgroundColor: const Color(0xffF5F5F5),
         body: ListView(
-          // physics:
-          // BouncingScrollPhysics(parent: const AlwaysScrollableScrollPhysics()),
           children: [
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [
-            //     searchBar(),
-            //   ],
-            // ),
-            // SizedBox(height: _w / 20),
-
-            Row(children: [
-              buildCard(
-                CourceName: "Advanced SoftWare ",
-                ImageUrl: 'assets/images/Datacommunnication.png',
-                CourceCode: "Fcai2021IT",
-                DoctorName: "Iman Sanad",
-                //RouteName: showAlert(context)
-              ),
-              buildCard(
-                CourceName: "Data Communication",
-                ImageUrl: 'assets/images/Datacommunnication.png',
-                CourceCode: "Fcai2021IT",
-                DoctorName: "Iman Sanad",
-                //  RouteName: showAlert(context)
-              ),
-            ]),
-            Row(children: [
-              buildCard(
-                CourceName: "Advanced SoftWare ",
-                ImageUrl: 'assets/images/Datacommunnication.png',
-                CourceCode: "Fcai2021IT",
-                DoctorName: "Iman Sanad",
-                //RouteName: showAlert(context)
-              ),
-              buildCard(
-                CourceName: "Data Communication",
-                ImageUrl: 'assets/images/Datacommunnication.png',
-                CourceCode: "Fcai2021IT",
-                DoctorName: "Iman Sanad",
-                //RouteName: showAlert(context)
-              ),
-            ]),
-            Row(children: [
-              buildCard(
-                CourceName: "Data Communication",
-                ImageUrl: 'assets/images/Datacommunnication.png',
-                CourceCode: "Fcai2021IT",
-                DoctorName: "Iman Sanad",
-                //RouteName: showAlert(context)
-              ),
-              buildCard(
-                CourceName: "Data Communication",
-                ImageUrl: 'assets/images/Datacommunnication.png',
-                CourceCode: "Fcai2021IT",
-                DoctorName: "Iman Sanad",
-                //RouteName: showAlert(context)
-              ),
-            ]),
-            Row(children: [
-              buildCard(
-                CourceName: "Data Communication",
-                ImageUrl: 'assets/images/Datacommunnication.png',
-                CourceCode: "Fcai2021IT",
-                DoctorName: "Iman Sanad",
-                //RouteName: showAlert(context)
-              ),
-            ]),
+            Container(
+              height: Myheight * .35,
+              child: Row(children: [
+                buildCard(
+                  CourceName: "Advanced SoftWare ",
+                  ImageUrl: 'assets/images/Datacommunnication.png',
+                  CourceCode: "Fcai2021IT",
+                  DoctorName: "Iman Sanad",
+                  //RouteName: showAlert(context)
+                ),
+                buildCard(
+                  CourceName: "Data Communication",
+                  ImageUrl: 'assets/images/Datacommunnication.png',
+                  CourceCode: "Fcai2021IT",
+                  DoctorName: "Iman Sanad",
+                  //  RouteName: showAlert(context)
+                ),
+              ]),
+            ),
+            Container(
+              height: Myheight * .35,
+              child: Row(children: [
+                buildCard(
+                  CourceName: "Advanced SoftWare ",
+                  ImageUrl: 'assets/images/Datacommunnication.png',
+                  CourceCode: "Fcai2021IT",
+                  DoctorName: "Iman Sanad",
+                  //RouteName: showAlert(context)
+                ),
+                buildCard(
+                  CourceName: "Data Communication",
+                  ImageUrl: 'assets/images/Datacommunnication.png',
+                  CourceCode: "Fcai2021IT",
+                  DoctorName: "Iman Sanad",
+                  //RouteName: showAlert(context)
+                ),
+              ]),
+            ),
+            Container(
+              height: Myheight * .35,
+              child: Row(children: [
+                buildCard(
+                  CourceName: "Data Communication",
+                  ImageUrl: 'assets/images/Datacommunnication.png',
+                  CourceCode: "Fcai2021IT",
+                  DoctorName: "Iman Sanad",
+                  //RouteName: showAlert(context)
+                ),
+                buildCard(
+                  CourceName: "Data Communication",
+                  ImageUrl: 'assets/images/Datacommunnication.png',
+                  CourceCode: "Fcai2021IT",
+                  DoctorName: "Iman Sanad",
+                  //RouteName: showAlert(context)
+                ),
+              ]),
+            ),
+            Container(
+              height: Myheight * .35,
+              child: Row(children: [
+                buildCard(
+                  CourceName: "Data Communication",
+                  ImageUrl: 'assets/images/Datacommunnication.png',
+                  CourceCode: "Fcai2021IT",
+                  DoctorName: "Iman Sanad",
+                  //RouteName: showAlert(context)
+                ),
+              ]),
+            ),
           ],
         ),
         floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {},
+          onPressed: () {
+            CreateCource(context);
+          },
           icon: Icon(Icons.add),
-          label: Text("add Cource"),
+          label: Text("Create Cource"),
         ),
       ),
       //settingIcon(),
@@ -170,31 +178,36 @@ class _DoctorCourcesState extends State<DoctorCources>
           ),
           TextButton(
             onPressed: () {},
-            child: const Text("Current lecture"),
+            child: const Text(
+              "Current lecture",
+              style: TextStyle(fontSize: 25),
+            ),
           )
         ]),
       ],
     );
   }
 
-  Container buildCard({
+  buildCard({
     required String CourceName,
     required String ImageUrl,
     required String DoctorName,
     required String CourceCode,
     //required var RouteName
   }) {
-    return Container(
-      margin: EdgeInsets.only(top: 20),
-      width: MediaQuery.of(context).size.width / 2,
-      height: MediaQuery.of(context).size.height * .2887,
-      child:InkWell(onTap: () {
-        diaglog();
-      },
-        child: Card(
+    return LayoutBuilder(
+      builder: (ctx, constrain) => Container(
+        margin: EdgeInsets.only(top: constrain.maxHeight * .05),
+        width: MediaQuery.of(context).size.width * .5,
+        height: constrain.maxHeight,
+        child: InkWell(
+          onTap: () {
+            diaglog();
+          },
+          child: Card(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-            elevation: 4,
+            elevation: 5,
             //margin: EdgeInsets.only(left: 10, top: 10, right: 10),
             child: Column(
               children: [
@@ -204,51 +217,63 @@ class _DoctorCourcesState extends State<DoctorCources>
                       topRight: Radius.circular(15)),
                   child: Image.asset(
                     ImageUrl,
-                    height: MediaQuery.of(context).size.height / 4.3,
-                    width: MediaQuery.of(context).size.width / 2,
+                    height: constrain.maxHeight * .7,
+                    width: MediaQuery.of(context).size.width * .5,
                     fit: BoxFit.fill,
                   ),
                 ),
-                 Container(
-                   color: Colors.redAccent,
-                    width: MediaQuery.of(context).size.width * .5,
-                   height:MediaQuery.of(context).size.width * .08 ,
-                   child: InkWell(onTap: (){},
-                       child: Icon(Icons.delete),
-                   ),
-                 ),
-                // Padding(
-                //     padding: EdgeInsets.only(left: 10, right: 10),
-                //     child: Row(
-                //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //       children: [
-                //         Container(
-                //           width: MediaQuery.of(context).size.width * .23,
-                //           child: ElevatedButton(
-                //             style: ButtonStyle(
-                //                 backgroundColor:
-                //                     MaterialStateProperty.all(Colors.blueAccent)),
-                //             onPressed: () => diaglog(),
-                //             child: Icon(Icons.remove_red_eye),
-                //           ),
-                //         ),
-                //         Container(
-                //           width: MediaQuery.of(context).size.width * .15,
-                //           child: ElevatedButton(
-                //             style: ButtonStyle(
-                //                 backgroundColor:
-                //                     MaterialStateProperty.all(Colors.redAccent)),
-                //             onPressed: () {},
-                //             child: Icon(Icons.delete),
-                //           ),
-                //         )
-                //       ],
-                //     ))
+                Container(
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(5)),
+                  height: constrain.maxHeight * .21,
+                  width: MediaQuery.of(context).size.width * .5,
+                  child: TextButton.icon(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.delete,
+                      color: Colors.red,
+                    ),
+                    label: Text(
+                      "Delete",
+                      style: TextStyle(color: Colors.red),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
+        ),
       ),
+    );
+  }
 
+  CreateCource(BuildContext ctx) {
+    showModalBottomSheet(
+      context: ctx,
+      builder: (_) {
+        return GestureDetector(
+          onTap: () {},
+          child: Card(
+            elevation: 5,
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Cource Name'),
+                  ),
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Acces Code'),
+                    keyboardType: TextInputType.number,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          behavior: HitTestBehavior.opaque,
+        );
+      },
     );
   }
 

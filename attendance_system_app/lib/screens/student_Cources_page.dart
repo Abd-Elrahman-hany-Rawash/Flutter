@@ -51,8 +51,7 @@ class _StudentCourcesState extends State<StudentCources>
               IconButton(
                   icon: const Icon(Icons.add),
                   onPressed: () {
-                    Navigator.of(context)
-                        .pushReplacementNamed('NewStudentCourse');
+                    Navigator.of(context).pushNamed('NewStudentCourse');
                   })
             ]),
 
