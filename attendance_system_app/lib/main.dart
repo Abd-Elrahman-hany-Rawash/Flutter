@@ -1,10 +1,10 @@
-import 'package:attendance_system_app/screens/Doctor_Cources_Page.dart';
-import 'package:attendance_system_app/screens/add_new_course_Student.dart';
-import 'package:attendance_system_app/screens/history_lectuers.dart';
-import 'package:attendance_system_app/screens/sign_in_Doctor_page.dart';
-import 'package:attendance_system_app/screens/sign_in_Student_page.dart';
+import 'package:attendance_system_app/screens/Doctor/Doctor_Cources_Page.dart';
+import 'package:attendance_system_app/screens/Student/add_new_course_Student.dart';
+import 'package:attendance_system_app/screens/Student/history_lectuers.dart';
+import 'package:attendance_system_app/screens/Doctor/sign_in_Doctor_page.dart';
+import 'package:attendance_system_app/screens/Student/sign_in_Student_page.dart';
 import 'package:attendance_system_app/screens/start_page.dart';
-import 'package:attendance_system_app/screens/student_Cources_page.dart';
+import 'package:attendance_system_app/screens/Student/student_Cources_page.dart';
 
 import 'package:flutter/material.dart';
 

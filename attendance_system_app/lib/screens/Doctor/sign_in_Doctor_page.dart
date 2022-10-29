@@ -1,31 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:attendance_system_app/components/crud.dart';
+import 'package:attendance_system_app/constant/linkapi.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 
-class Sign_In_Student extends StatelessWidget {
-  const Sign_In_Student({Key? key}) : super(key: key);
+import 'package:attendance_system_app/constant/linkapi.dart';
+
+class Sign_In_Doctor extends StatefulWidget {
+  @override
+  _Sign_In_DoctorState createState() => _Sign_In_DoctorState();
+}
+
+class _Sign_In_DoctorState extends State<Sign_In_Doctor> {
+  final GlobalKey<FormState> _studentKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-
-        backgroundColor:  Color.fromARGB(255, 15,43, 77),
-        body: SingleChildScrollView(
-          child: Container(
-            width: double.infinity,
-            decoration: BoxDecoration(
-                gradient: LinearGradient(begin: Alignment.topCenter, colors: [
-                  Color.fromARGB(255, 15,43, 77),
-                  Color.fromARGB(255, 15,43, 77),
-              // Colors.blue.shade100,
-              // Colors.blue.shade900,
-              // Colors.blue,
-              // Colors.blue.shade900,
-              // Colors.blue.shade200,
-              // Colors.blue.shade900,
-            ])),
-            child: Center(
+          //  appBar: AppBar(
+          //   title: const Text('Doctor Login'),
+          //   centerTitle: true,
+          // //  backgroundColor: Colors.black,
+          // ),
+          backgroundColor: Color.fromARGB(255, 15, 43, 77),
+          body: SingleChildScrollView(
+            child: Container(
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                  gradient: LinearGradient(begin: Alignment.topCenter, colors: [
+                // Colors.blue.shade100,
+                // Colors.blue.shade900,
+                Color.fromARGB(255, 15, 43, 77),
+                Color.fromARGB(255, 15, 43, 77),
+              ])),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -44,7 +53,7 @@ class Sign_In_Student extends StatelessWidget {
                           height: 10,
                         ),
                         Text(
-                          "Welcome Student",
+                          "Welcome Doctor",
                           style: TextStyle(color: Colors.white, fontSize: 20),
                         ),
                       ],
@@ -55,9 +64,7 @@ class Sign_In_Student extends StatelessWidget {
                 ],
               ),
             ),
-          ),
-        ),
-      ),
+          )),
     );
   }
 }
@@ -71,21 +78,40 @@ class MyStatefulWidget extends StatefulWidget {
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  TextEditingController Email = TextEditingController();
+  TextEditingController Password = TextEditingController();
+  Crud crud = Crud();
+
+  sign_in_Doctor_page() async {
+    if (_formKey.currentState!.validate()) {
+      var response = await crud.postRequest(
+          linkLoginDoctor, {"Email": Email.text, "Password": Password.text});
+      if (response['status'] == "success") {
+        Navigator.of(context)
+            .pushNamedAndRemoveUntil('DoctorCources', (route) => false);
+      } else {
+        AwesomeDialog(
+            context: context,
+            title: "ALERT",
+            body: Text("Incorrect Email or Password"))
+          .show();
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-   const Color mycolor=Colors.white;
-    TextEditingController ID = TextEditingController();
-    TextEditingController password = TextEditingController();
     return Container(
       alignment: Alignment.center,
       width: MediaQuery.of(context).size.width,
       // height:MediaQuery.of(context).size.height ,
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
       padding: const EdgeInsets.all(20),
+
       decoration: const BoxDecoration(
-        color: Colors.white30,
+        backgroundBlendMode: BlendMode.luminosity,
         borderRadius: BorderRadius.all(Radius.circular(60)),
+        color: Colors.white30,
       ),
       child: Form(
         key: _formKey,
@@ -97,34 +123,34 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: TextFormField(
-                  controller: ID,
+                  controller: Email,
                   decoration: const InputDecoration(
                     icon: Icon(
-                      Icons.person,
-                      color:mycolor,
+                      Icons.email,
+                      color: Colors.white,
                     ),
-                    labelText: "ID",
+                    labelText: "Email",
                     labelStyle: TextStyle(color: Colors.white, fontSize: 25),
-                    hintText: 'Enter your ID',
+                    hintText: 'Enter your Email',
                   ),
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter your ID';
+                      return 'Please enter your Email';
                     }
                     return null;
                   },
-                  keyboardType: TextInputType.number,
+                  keyboardType: TextInputType.emailAddress,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: TextFormField(
-                  controller: password,
+                  controller: Password,
                   obscureText: true,
                   decoration: const InputDecoration(
                     icon: Icon(
                       Icons.lock,
-                      color: mycolor,
+                      color: Colors.white,
                     ),
                     labelText: "password",
                     labelStyle: TextStyle(color: Colors.white, fontSize: 25),
@@ -156,8 +182,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                         backgroundColor:
                             MaterialStateProperty.all(Colors.white),
                       ),
-                      onPressed: () => Navigator.of(context)
-                          .pushReplacementNamed('StudentCources'),
+                      onPressed: () async {
+                        await sign_in_Doctor_page();
+                      },
                       child: const Text(
                         'Login ',
                         style: TextStyle(

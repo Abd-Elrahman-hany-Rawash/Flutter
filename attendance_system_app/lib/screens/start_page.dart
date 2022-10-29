@@ -22,16 +22,19 @@ class _Start_PageState extends State<Start_Page> {
 
   @override
   Widget build(BuildContext context) {
+    var Myheight = (MediaQuery.of(context).size.height -
+        MediaQuery.of(context).padding.top);
     return SafeArea(
       child: Scaffold(
         body: Container(
+          height: Myheight,
           color: Color.fromARGB(255, 35, 57, 91),
           child: Column(children: [
             Row(
               children: [
                 Container(
                   // color: Colors.blue.shade900,
-                  height: MediaQuery.of(context).size.height / 1.35,
+                  height: Myheight * .7,
                   width: MediaQuery.of(context).size.width,
                   child: Image.asset(
                     "assets/images/4.png",
@@ -40,31 +43,41 @@ class _Start_PageState extends State<Start_Page> {
                 )
               ],
             ),
-
-            // SizedBox(height: 20, ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CustomizedButton(
-                  buttonText: "Doctor",
-                  textColor: Colors.white,
-                  buttonColor: Color.fromARGB(255, 1, 167, 89),
-                  onPressed: () {
-                    SelectScren("Doctor");
-                  },
-                ),
-              ],
+            SizedBox(
+              height: Myheight * .04,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CustomizedButton(
-                  buttonText: "Student",
-                  textColor: Colors.white,
-                  buttonColor: Color.fromARGB(255, 1, 167, 89),
-                  onPressed: () {
-                    SelectScren("Student");
-                  },
+                SizedBox(
+                  height: Myheight * .10,
+                  child: CustomizedButton(
+                    buttonText: "Doctor",
+                    textColor: Colors.white,
+                    buttonColor: Color.fromARGB(255, 1, 167, 89),
+                    onPressed: () {
+                      SelectScren("Doctor");
+                    },
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: Myheight * .03,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: Myheight * .10,
+                  child: CustomizedButton(
+                    buttonText: "Student",
+                    textColor: Colors.white,
+                    buttonColor: Color.fromARGB(255, 1, 167, 89),
+                    onPressed: () {
+                      SelectScren("Student");
+                    },
+                  ),
                 ),
               ],
             ),

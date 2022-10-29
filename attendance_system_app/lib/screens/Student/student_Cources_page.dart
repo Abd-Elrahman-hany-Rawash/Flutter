@@ -170,11 +170,12 @@ class _StudentCourcesState extends State<StudentCources>
             },
           ),
           TextButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed(
-                "Doctor",
-              );
-            },
+            onPressed: null,
+            //     () {
+            //   Navigator.of(context).pushNamed(
+            //     "Doctor",
+            //   );
+            // },
             child: const Text("Current lecture"),
           )
         ]),
