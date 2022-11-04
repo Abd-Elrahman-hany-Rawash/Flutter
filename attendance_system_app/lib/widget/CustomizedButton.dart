@@ -21,9 +21,10 @@ class CustomizedButton extends StatelessWidget {
         return InkWell(
           onTap: onPressed,
           child: Container(
-           // height: BoxConstraints!!*1,
+            //height: BoxConstraints!*1,
+           // height: 20,
               alignment: Alignment.center,
-              width: MediaQuery.of(context).size.width*.85,
+              width: MediaQuery.of(context).size.width*.8,
               decoration: BoxDecoration(
                   color: buttonColor,
                   //  border: Border.all(width: 1, color: Colors.black),
@@ -34,7 +35,7 @@ class CustomizedButton extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   color: textColor,
-                  fontSize: 28,
+                  fontSize: 25,
                 ),
               ))),
         );

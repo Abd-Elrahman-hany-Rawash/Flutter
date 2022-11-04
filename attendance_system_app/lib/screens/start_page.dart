@@ -34,7 +34,7 @@ class _Start_PageState extends State<Start_Page> {
               children: [
                 Container(
                   // color: Colors.blue.shade900,
-                  height: Myheight * .7,
+                  height: Myheight * .6,
                   width: MediaQuery.of(context).size.width,
                   child: Image.asset(
                     "assets/images/4.png",
@@ -44,13 +44,13 @@ class _Start_PageState extends State<Start_Page> {
               ],
             ),
             SizedBox(
-              height: Myheight * .04,
+              height: Myheight * .17,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: Myheight * .10,
+                  height: Myheight * .08,
                   child: CustomizedButton(
                     buttonText: "Doctor",
                     textColor: Colors.white,
@@ -69,7 +69,7 @@ class _Start_PageState extends State<Start_Page> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: Myheight * .10,
+                  height: Myheight * .08,
                   child: CustomizedButton(
                     buttonText: "Student",
                     textColor: Colors.white,
@@ -80,6 +80,9 @@ class _Start_PageState extends State<Start_Page> {
                   ),
                 ),
               ],
+            ),
+            SizedBox(
+              height: Myheight * .04,
             ),
           ]),
         ),

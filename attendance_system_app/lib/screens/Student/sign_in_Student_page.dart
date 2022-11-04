@@ -1,6 +1,8 @@
 import 'package:attendance_system_app/components/crud.dart';
 import 'package:attendance_system_app/constant/linkapi.dart';
 import 'package:flutter/material.dart';
+import 'package:rounded_loading_button/rounded_loading_button.dart';
+
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
@@ -15,8 +17,10 @@ class Sign_In_Student extends StatelessWidget {
         MediaQuery.of(context).padding.top);
     return SafeArea(
       child: Scaffold(
-        //backgroundColor: Color.fromARGB(255, 15, 43, 77),
+       // backgroundColor: Color.fromARGB(255, 15, 43, 77),
         body: Container(
+          decoration: BoxDecoration(color:Color.fromARGB(255, 15, 43, 77) ),
+         // Color: Color.fromARGB(255, 15, 43, 77),
           height: Myheight,
           child: SingleChildScrollView(
             child: Container(
@@ -60,7 +64,7 @@ class Sign_In_Student extends StatelessWidget {
                     ),
                     SizedBox(height: Myheight * .08),
                     SizedBox(child: const MyStatefulWidget(),height: Myheight*.7,),
-                    //SizedBox(height: Myheight * .03),
+                    SizedBox(height: Myheight * .13),
 
                   ],
                 ),
@@ -168,9 +172,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     },
                   ),
                 ),
-                const SizedBox(
-                  height: 40,
-                ),
+
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16.0),
