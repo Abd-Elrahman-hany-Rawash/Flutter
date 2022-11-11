@@ -9,6 +9,64 @@ class NewStudentCourse extends StatefulWidget {
 }
 
 class _NewStudentCourse extends State<NewStudentCourse> {
+  diaglog() {
+    return {
+      showDialog(
+          context: context,
+          builder: (BuildContext) {
+            return Alert();
+          })
+    };
+  }
+
+  Alert() {
+    return Expanded(
+      child: AlertDialog(
+        title: const Text(
+          'Select lecture',
+          style: TextStyle(fontSize: 25),
+        ),
+        content: Container(
+          height: MediaQuery.of(context).size.height / 7,
+          child: Column(children: [
+            Divider(
+              color: Colors.black,
+            ),
+            Text(
+              overflow: TextOverflow.fade,
+              maxLines: null,
+              softWrap: true,
+
+              'Do you want to choose previous lectures or current lecture ?',
+              style: TextStyle(fontSize: 19),
+            ),
+          ]),
+        ),
+        actions: <Widget>[
+          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+            TextButton(
+              child: const Text("Previous lectures"),
+              onPressed: () {
+                Navigator.of(context).pushNamed(
+                  "History",
+                );
+              },
+            ),
+            TextButton(
+              onPressed: null,
+              //     () {
+              //   Navigator.of(context).pushNamed(
+              //     "Doctor",
+              //   );
+              // },
+              child: const Text("Current lecture"),
+            )
+          ]),
+        ],
+      ),
+    );
+  }
+
   @override
   Icon customIcon = const Icon(Icons.search);
   Widget customSearchBar = const Text('All Courses');
@@ -31,23 +89,33 @@ class _NewStudentCourse extends State<NewStudentCourse> {
             children: [
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 10, 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
+                child: Flexible(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
 
-                    Text(
-                      "${subjectName}",
-                      textAlign: TextAlign.start,
-                      //textScaleFactor: 0.85,
 
-                      style: const TextStyle(
-                        fontFamily: 'Urbanist',
-                        color: Colors.black,
-                        fontSize: 25,
-                        fontWeight: FontWeight.normal,
+
+                      Expanded(
+                        child: Text(
+                          "${subjectName}",
+                          textAlign: TextAlign.start,
+                          //textScaleFactor: 0.85,
+                          maxLines: null,
+                          softWrap: true,
+                          overflow: TextOverflow.fade,
+
+                          style: const TextStyle(
+                            fontFamily: 'Urbanist',
+                            color: Colors.black,
+                            fontSize: 25,
+                            fontWeight: FontWeight.normal,
+
+                          ),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               Text(
@@ -182,6 +250,7 @@ class _NewStudentCourse extends State<NewStudentCourse> {
           actions: [
             IconButton(
               onPressed: () {
+
                 setState(() {
                   if (customIcon.icon == Icons.search) {
                     customIcon = const Icon(Icons.cancel);

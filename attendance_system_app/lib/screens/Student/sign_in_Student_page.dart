@@ -62,9 +62,9 @@ class Sign_In_Student extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(height: Myheight * .08),
-                    SizedBox(child: const MyStatefulWidget(),height: Myheight*.7,),
-                    SizedBox(height: Myheight * .13),
+                    SizedBox(height: Myheight * .05),
+                    SizedBox(child: const MyStatefulWidget(),height: Myheight*.79,),
+                    SizedBox(height: Myheight * .04),
 
                   ],
                 ),
@@ -175,10 +175,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
                 Center(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    padding: const EdgeInsets.symmetric(vertical: 13.0),
                     child: SizedBox(
-                      width: MediaQuery.of(context).size.width / 2.9,
-                      height: MediaQuery.of(context).size.width / 9,
+                      width: MediaQuery.of(context).size.width / 2.7,
+                      height: MediaQuery.of(context).size.width / 8,
                       child: ElevatedButton(
                         style: ButtonStyle(
                           shape: MaterialStateProperty.all(

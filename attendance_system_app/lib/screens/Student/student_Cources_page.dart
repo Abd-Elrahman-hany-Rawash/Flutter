@@ -142,44 +142,50 @@ class _StudentCourcesState extends State<StudentCources>
   }
 
   Alert() {
-    return AlertDialog(
-      title: const Text(
-        'Select lecture',
-        style: TextStyle(fontSize: 25),
+    return Expanded(
+      child: AlertDialog(
+        title: const Text(
+          'Select lecture',
+          style: TextStyle(fontSize: 25),
+        ),
+        content: Container(
+          height: MediaQuery.of(context).size.height / 7,
+          child: Column(children: [
+            Divider(
+              color: Colors.black,
+            ),
+            Text(
+              overflow: TextOverflow.fade,
+              maxLines: null,
+              softWrap: true,
+
+              'Do you want to choose previous lectures or current lecture ?',
+              style: TextStyle(fontSize: 19),
+            ),
+          ]),
+        ),
+        actions: <Widget>[
+          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+            TextButton(
+              child: const Text("Previous lectures"),
+              onPressed: () {
+                Navigator.of(context).pushNamed(
+                  "History",
+                );
+              },
+            ),
+            TextButton(
+              onPressed: null,
+              //     () {
+              //   Navigator.of(context).pushNamed(
+              //     "Doctor",
+              //   );
+              // },
+              child: const Text("Current lecture"),
+            )
+          ]),
+        ],
       ),
-      content: Container(
-        height: MediaQuery.of(context).size.height / 10,
-        child: Column(children: [
-          Divider(
-            color: Colors.black,
-          ),
-          Text(
-            'Do you want to choose previous lectures or current lecture ?',
-            style: TextStyle(fontSize: 19),
-          ),
-        ]),
-      ),
-      actions: <Widget>[
-        Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-          TextButton(
-            child: const Text("Previous lectures"),
-            onPressed: () {
-              Navigator.of(context).pushNamed(
-                "History",
-              );
-            },
-          ),
-          TextButton(
-            onPressed: null,
-            //     () {
-            //   Navigator.of(context).pushNamed(
-            //     "Doctor",
-            //   );
-            // },
-            child: const Text("Current lecture"),
-          )
-        ]),
-      ],
     );
   }
 
@@ -193,17 +199,20 @@ class _StudentCourcesState extends State<StudentCources>
     return Container(
       margin: EdgeInsets.only(top: 20),
       width: MediaQuery.of(context).size.width / 2,
-      height: MediaQuery.of(context).size.height / 2.9,
+      height: MediaQuery.of(context).size.height / 2.5,
       child: InkWell(
         onTap: () {
           diaglog();
         },
         child: Card(
+
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
           elevation: 4,
           margin: EdgeInsets.only(left: 10, top: 10, right: 10),
           child: Column(
+
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.only(
@@ -223,17 +232,24 @@ class _StudentCourcesState extends State<StudentCources>
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text(
-                            "Cource Name : ${CourceName}",
-                            style: TextStyle(fontSize: 10),
-                            overflow: TextOverflow.fade,
-                            maxLines: 1,
-                            softWrap: false,
+
+                          Expanded(
+                            child: Text(
+                              textAlign: TextAlign.center,
+
+                              "Cource Name : ${CourceName}",
+                              style: TextStyle(fontSize: 12),
+
+                              overflow: TextOverflow.fade,
+                              maxLines: null,
+                              softWrap: true,
+                            ),
                           ),
                         ],
                       ),
+
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Text(
                             "Cource Code : ${CourceCode}",
@@ -243,7 +259,7 @@ class _StudentCourcesState extends State<StudentCources>
                         ],
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Text(
                             "Dr : ${DoctorName}",
@@ -284,6 +300,7 @@ class _StudentCourcesState extends State<StudentCources>
               ],
             ),
             child: TextField(
+
               maxLines: 1,
               decoration: InputDecoration(
                 fillColor: Colors.transparent,
