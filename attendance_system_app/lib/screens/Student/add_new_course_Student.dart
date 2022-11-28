@@ -36,7 +36,6 @@ class _NewStudentCourse extends State<NewStudentCourse> {
               overflow: TextOverflow.fade,
               maxLines: null,
               softWrap: true,
-
               'Do you want to choose previous lectures or current lecture ?',
               style: TextStyle(fontSize: 19),
             ),
@@ -52,14 +51,14 @@ class _NewStudentCourse extends State<NewStudentCourse> {
                 );
               },
             ),
-            TextButton(
+            const TextButton(
               onPressed: null,
               //     () {
               //   Navigator.of(context).pushNamed(
               //     "Doctor",
               //   );
               // },
-              child: const Text("Current lecture"),
+              child: Text("Current lecture"),
             )
           ]),
         ],
@@ -93,12 +92,9 @@ class _NewStudentCourse extends State<NewStudentCourse> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-
-
-
                       Expanded(
                         child: Text(
-                          "${subjectName}",
+                          "$subjectName",
                           textAlign: TextAlign.start,
                           //textScaleFactor: 0.85,
                           maxLines: null,
@@ -110,7 +106,6 @@ class _NewStudentCourse extends State<NewStudentCourse> {
                             color: Colors.black,
                             fontSize: 25,
                             fontWeight: FontWeight.normal,
-
                           ),
                         ),
                       ),
@@ -119,12 +114,11 @@ class _NewStudentCourse extends State<NewStudentCourse> {
                 ),
               ),
               Text(
-                "${subjectCode}",
+                "$subjectCode",
                 textAlign: TextAlign.start,
                 style: const TextStyle(
                   fontFamily: 'Urbanist',
                   color: Color(0xFF000102),
-
                   fontSize: 19.5,
                 ),
               ),
@@ -217,10 +211,7 @@ class _NewStudentCourse extends State<NewStudentCourse> {
       );
     }
 
-
-
-
-   // AlertDialog()
+    // AlertDialog()
 
     SubjectCard(ctx) {
       return ListView(scrollDirection: Axis.vertical, children: [
@@ -229,15 +220,9 @@ class _NewStudentCourse extends State<NewStudentCourse> {
             child: Container(
               child: Column(children: [
                 // subjectCode, subjectName, doctorName
-                cards(ctx, "Computer Archtecture",
-                    "IT311"),
-                cards(
-                    ctx,
-
-                    "Communication Technology",
-                    "IT321"),
-                cards(ctx,  "Data Structures",
-                    "Cs341"),
+                cards(ctx, "Computer Archtecture", "IT311"),
+                cards(ctx, "Communication Technology", "IT321"),
+                cards(ctx, "Data Structures", "Cs341"),
               ]),
             )),
       ]);
@@ -250,7 +235,6 @@ class _NewStudentCourse extends State<NewStudentCourse> {
           actions: [
             IconButton(
               onPressed: () {
-
                 setState(() {
                   if (customIcon.icon == Icons.search) {
                     customIcon = const Icon(Icons.cancel);

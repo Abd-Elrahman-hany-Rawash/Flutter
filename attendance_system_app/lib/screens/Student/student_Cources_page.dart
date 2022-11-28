@@ -45,6 +45,7 @@ class _StudentCourcesState extends State<StudentCources>
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+            backgroundColor: Colors.green,
             title: const Text("Registerd Courses"),
             centerTitle: true,
             actions: [
@@ -151,14 +152,13 @@ class _StudentCourcesState extends State<StudentCources>
         content: Container(
           height: MediaQuery.of(context).size.height / 7,
           child: Column(children: [
-            Divider(
+            const Divider(
               color: Colors.black,
             ),
-            Text(
+            const Text(
               overflow: TextOverflow.fade,
               maxLines: null,
               softWrap: true,
-
               'Do you want to choose previous lectures or current lecture ?',
               style: TextStyle(fontSize: 19),
             ),
@@ -174,14 +174,14 @@ class _StudentCourcesState extends State<StudentCources>
                 );
               },
             ),
-            TextButton(
+            const TextButton(
               onPressed: null,
               //     () {
               //   Navigator.of(context).pushNamed(
               //     "Doctor",
               //   );
               // },
-              child: const Text("Current lecture"),
+              child: Text("Current lecture"),
             )
           ]),
         ],
@@ -197,7 +197,7 @@ class _StudentCourcesState extends State<StudentCources>
     //required var RouteName
   }) {
     return Container(
-      margin: EdgeInsets.only(top: 20),
+      margin: const EdgeInsets.only(top: 20),
       width: MediaQuery.of(context).size.width / 2,
       height: MediaQuery.of(context).size.height / 2.5,
       child: InkWell(
@@ -205,17 +205,15 @@ class _StudentCourcesState extends State<StudentCources>
           diaglog();
         },
         child: Card(
-
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
           elevation: 4,
-          margin: EdgeInsets.only(left: 10, top: 10, right: 10),
+          margin: const EdgeInsets.only(left: 10, top: 10, right: 10),
           child: Column(
-
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(15),
                     topRight: Radius.circular(15)),
                 child: Image.asset(
@@ -226,20 +224,17 @@ class _StudentCourcesState extends State<StudentCources>
                 ),
               ),
               Padding(
-                  padding: EdgeInsets.only(left: 10, top: 10, right: 10),
+                  padding: const EdgeInsets.only(left: 10, top: 10, right: 10),
                   child: Column(
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-
                           Expanded(
                             child: Text(
                               textAlign: TextAlign.center,
-
                               "Cource Name : ${CourceName}",
-                              style: TextStyle(fontSize: 12),
-
+                              style: const TextStyle(fontSize: 12),
                               overflow: TextOverflow.fade,
                               maxLines: null,
                               softWrap: true,
@@ -247,13 +242,12 @@ class _StudentCourcesState extends State<StudentCources>
                           ),
                         ],
                       ),
-
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Text(
-                            "Cource Code : ${CourceCode}",
-                            style: TextStyle(fontSize: 12),
+                            "Cource Code : $CourceCode",
+                            style: const TextStyle(fontSize: 12),
                             overflow: TextOverflow.clip,
                           )
                         ],
@@ -262,8 +256,8 @@ class _StudentCourcesState extends State<StudentCources>
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Text(
-                            "Dr : ${DoctorName}",
-                            style: TextStyle(fontSize: 14),
+                            "Dr : $DoctorName",
+                            style: const TextStyle(fontSize: 14),
                           ),
                         ],
                       ),
@@ -295,12 +289,11 @@ class _StudentCourcesState extends State<StudentCources>
                 BoxShadow(
                   color: Colors.black.withOpacity(.1),
                   blurRadius: 30,
-                  offset: Offset(0, 15),
+                  offset: const Offset(0, 15),
                 ),
               ],
             ),
             child: TextField(
-
               maxLines: 1,
               decoration: InputDecoration(
                 fillColor: Colors.transparent,

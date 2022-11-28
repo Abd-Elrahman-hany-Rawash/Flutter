@@ -3,6 +3,7 @@ import 'package:attendance_system_app/screens/Student/add_new_course_Student.dar
 import 'package:attendance_system_app/screens/Student/history_lectuers.dart';
 import 'package:attendance_system_app/screens/Doctor/sign_in_Doctor_page.dart';
 import 'package:attendance_system_app/screens/Student/sign_in_Student_page.dart';
+import 'package:attendance_system_app/screens/intro/intro.dart';
 import 'package:attendance_system_app/screens/start_page.dart';
 import 'package:attendance_system_app/screens/Student/student_Cources_page.dart';
 
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
+        // '/': (context) => HomePage(),
         '/': (context) => const Start_Page(),
         'student': (context) => const Sign_In_Student(),
         'Doctor': (context) => Sign_In_Doctor(),
