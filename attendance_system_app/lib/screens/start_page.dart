@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:easy_splash_screen/easy_splash_screen.dart';
 import '../widget/CustomizedButton.dart';
 
 class Start_Page extends StatefulWidget {
@@ -28,7 +28,7 @@ class _Start_PageState extends State<Start_Page> {
       child: Scaffold(
         body: Container(
           height: Myheight,
-          color: Color.fromARGB(255, 35, 57, 91),
+          color: Colors.teal,
           child: Column(children: [
             Row(
               children: [
@@ -37,7 +37,7 @@ class _Start_PageState extends State<Start_Page> {
                   height: Myheight * .6,
                   width: MediaQuery.of(context).size.width,
                   child: Image.asset(
-                    "assets/images/4.png",
+                    "assets/images/StartImage.png",
                     fit: BoxFit.fill,
                   ),
                 )
@@ -53,8 +53,8 @@ class _Start_PageState extends State<Start_Page> {
                   height: Myheight * .08,
                   child: CustomizedButton(
                     buttonText: "Doctor",
-                    textColor: Colors.white,
-                    buttonColor: Color.fromARGB(255, 1, 167, 89),
+                    textColor: Color.fromRGBO(7, 6, 6, 1),
+                    buttonColor: Colors.white70,
                     onPressed: () {
                       SelectScren("Doctor");
                     },
@@ -72,8 +72,8 @@ class _Start_PageState extends State<Start_Page> {
                   height: Myheight * .08,
                   child: CustomizedButton(
                     buttonText: "Student",
-                    textColor: Colors.white,
-                    buttonColor: Color.fromARGB(255, 1, 167, 89),
+                    textColor: Color.fromRGBO(7, 6, 6, 1),
+                    buttonColor: Colors.white70,
                     onPressed: () {
                       SelectScren("Student");
                     },
