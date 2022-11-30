@@ -39,6 +39,46 @@ class _DoctorCourcesState extends State<DoctorCources>
 
   @override
   Widget build(BuildContext context) {
+    buildCouce() {
+      return Padding(
+        padding: EdgeInsets.only(top: 10),
+        child: Card(
+          elevation: 5,
+          child: ListTile(
+            leading: Image.network(
+              "https://play-lh.googleusercontent.com/5UwL7nXjNKqMAaF9zDyLupztNcoEdppXfWXJYKJMES7CK-rZ-t7bM5gy9p4Gc7qUm-Y",
+              fit: BoxFit.fill,
+            ),
+            title: Text('Data conmmunication'),
+            subtitle: Text('Cource Code :2020Fci3It313'),
+            trailing: PopupMen(MenuList: [
+              PopupMenuItem(
+                  child: InkWell(
+                onTap: () {
+                  diaglog();
+                },
+                child: ListTile(
+                  leading: Icon(Icons.remove_red_eye_sharp),
+                  title: Text("View"),
+                ),
+              )),
+              PopupMenuItem(
+                  child: ListTile(
+                leading: Icon(Icons.edit),
+                title: Text("Edit"),
+              )),
+              PopupMenuItem(
+                  child: ListTile(
+                leading: Icon(Icons.delete),
+                title: Text("Remove"),
+              )),
+            ], icon: Icon(Icons.more_vert_rounded)),
+            isThreeLine: true,
+          ),
+        ),
+      );
+    }
+
     TextEditingController CourceName = TextEditingController();
     TextEditingController CourceCode = TextEditingController();
     double _w = MediaQuery.of(context).size.width;
@@ -55,75 +95,9 @@ class _DoctorCourcesState extends State<DoctorCources>
         backgroundColor: const Color(0xffF5F5F5),
         body: ListView(
           children: [
-            Container(
-              height: Myheight * .35,
-              child: Row(children: [
-                buildCard(
-                  CourceName: "Advanced SoftWare ",
-                  ImageUrl: 'assets/images/Datacommunnication.png',
-                  CourceCode: "Fcai2021IT",
-                  DoctorName: "Iman Sanad",
-                  //RouteName: showAlert(context)
-                ),
-                buildCard(
-                  CourceName: "Data Communication",
-                  ImageUrl: 'assets/images/Datacommunnication.png',
-                  CourceCode: "Fcai2021IT",
-                  DoctorName: "Iman Sanad",
-                  //  RouteName: showAlert(context)
-                ),
-              ]),
-            ),
-            Container(
-              height: Myheight * .35,
-              child: Row(children: [
-                buildCard(
-                  CourceName: "Advanced SoftWare ",
-                  ImageUrl: 'assets/images/Datacommunnication.png',
-                  CourceCode: "Fcai2021IT",
-                  DoctorName: "Iman Sanad",
-                  //RouteName: showAlert(context)
-                ),
-                buildCard(
-                  CourceName: "Data Communication",
-                  ImageUrl: 'assets/images/Datacommunnication.png',
-                  CourceCode: "Fcai2021IT",
-                  DoctorName: "Iman Sanad",
-                  //RouteName: showAlert(context)
-                ),
-              ]),
-            ),
-            Container(
-              height: Myheight * .35,
-              child: Row(children: [
-                buildCard(
-                  CourceName: "Data Communication",
-                  ImageUrl: 'assets/images/Datacommunnication.png',
-                  CourceCode: "Fcai2021IT",
-                  DoctorName: "Iman Sanad",
-                  //RouteName: showAlert(context)
-                ),
-                buildCard(
-                  CourceName: "Data Communication",
-                  ImageUrl: 'assets/images/Datacommunnication.png',
-                  CourceCode: "Fcai2021IT",
-                  DoctorName: "Iman Sanad",
-                  //RouteName: showAlert(context)
-                ),
-              ]),
-            ),
-            Container(
-              height: Myheight * .35,
-              child: Row(children: [
-                buildCard(
-                  CourceName: "Data Communication",
-                  ImageUrl: 'assets/images/Datacommunnication.png',
-                  CourceCode: "Fcai2021IT",
-                  DoctorName: "Iman Sanad",
-                  //RouteName: showAlert(context)
-                ),
-              ]),
-            ),
+            buildCouce(),
+            buildCouce(),
+            buildCouce(),
           ],
         ),
         floatingActionButton: FloatingActionButton.extended(
@@ -156,7 +130,7 @@ class _DoctorCourcesState extends State<DoctorCources>
       ),
       content: Container(
         height: MediaQuery.of(context).size.height / 10,
-        child: Column(children: [
+        child: Column(children: const [
           Divider(
             color: Colors.black,
           ),
@@ -180,70 +154,11 @@ class _DoctorCourcesState extends State<DoctorCources>
             onPressed: () {},
             child: const Text(
               "Current lecture",
-              style: TextStyle(fontSize: 25),
+              style: TextStyle(fontSize: 19),
             ),
           )
         ]),
       ],
-    );
-  }
-
-  buildCard({
-    required String CourceName,
-    required String ImageUrl,
-    required String DoctorName,
-    required String CourceCode,
-    //required var RouteName
-  }) {
-    return LayoutBuilder(
-      builder: (ctx, constrain) => Container(
-        margin: EdgeInsets.only(top: constrain.maxHeight * .05),
-        width: MediaQuery.of(context).size.width * .5,
-        height: constrain.maxHeight,
-        child: InkWell(
-          onTap: () {
-            diaglog();
-          },
-          child: Card(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-            elevation: 5,
-            //margin: EdgeInsets.only(left: 10, top: 10, right: 10),
-            child: Column(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(15),
-                      topRight: Radius.circular(15)),
-                  child: Image.asset(
-                    ImageUrl,
-                    height: constrain.maxHeight * .7,
-                    width: MediaQuery.of(context).size.width * .5,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                Container(
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(5)),
-                  height: constrain.maxHeight * .21,
-                  width: MediaQuery.of(context).size.width * .5,
-                  child: TextButton.icon(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.delete,
-                      color: Colors.red,
-                    ),
-                    label: Text(
-                      "Delete",
-                      style: TextStyle(color: Colors.red),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
     );
   }
 
@@ -253,13 +168,14 @@ class _DoctorCourcesState extends State<DoctorCources>
       builder: (_) {
         return GestureDetector(
           onTap: () {},
+          behavior: HitTestBehavior.opaque,
           child: Card(
             elevation: 5,
             child: Container(
               padding: EdgeInsets.all(10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
+                children: const <Widget>[
                   TextField(
                     decoration: InputDecoration(labelText: 'Cource Name'),
                   ),
@@ -271,7 +187,6 @@ class _DoctorCourcesState extends State<DoctorCources>
               ),
             ),
           ),
-          behavior: HitTestBehavior.opaque,
         );
       },
     );
@@ -322,6 +237,25 @@ class _DoctorCourcesState extends State<DoctorCources>
           SizedBox(height: _w / 12),
         ],
       ),
+    );
+  }
+}
+
+class PopupMen extends StatelessWidget {
+  final List<PopupMenuEntry> MenuList;
+  final Widget? icon;
+
+  const PopupMen({Key? key, required this.MenuList, required this.icon})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return PopupMenuButton(
+      constraints: BoxConstraints.expand(
+          width: MediaQuery.of(context).size.width * 0.5, height: 180),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      itemBuilder: ((context) => MenuList),
+      icon: icon,
     );
   }
 }
