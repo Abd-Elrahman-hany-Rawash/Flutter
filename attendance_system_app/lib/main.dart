@@ -1,4 +1,6 @@
 import 'package:attendance_system_app/screens/Doctor/Doctor_Cources_Page.dart';
+import 'package:attendance_system_app/screens/Doctor/HistoryLecture.dart';
+import 'package:attendance_system_app/screens/Doctor/HistoryLectures.dart';
 import 'package:attendance_system_app/screens/Student/add_new_course_Student.dart';
 import 'package:attendance_system_app/screens/Student/history_lectuers.dart';
 import 'package:attendance_system_app/screens/Doctor/sign_in_Doctor_page.dart';
@@ -29,12 +31,14 @@ class MyApp extends StatelessWidget {
         "StudentCources": (context) => StudentCources(),
         "History": (context) => const HistoryPage(),
         "DoctorCources": (context) => DoctorCources(),
-        "NewStudentCourse": (context) => const NewStudentCourse()
+        "NewStudentCourse": (context) => const NewStudentCourse(),
+        "DoctorHistory":(context)=>DoctorHistory(),
+        "Historylecture":(context)=>Historylecture()
       },
       debugShowCheckedModeBanner: false,
       // title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
     );
   }

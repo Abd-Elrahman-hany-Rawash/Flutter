@@ -41,38 +41,41 @@ class _DoctorCourcesState extends State<DoctorCources>
   Widget build(BuildContext context) {
     buildCouce() {
       return Padding(
-        padding: EdgeInsets.only(top: 10),
+        padding: const EdgeInsets.only(top: 10),
         child: Card(
           elevation: 5,
           child: ListTile(
+            dense: true,
+            visualDensity: const VisualDensity(vertical:4,horizontal: 4),
             leading: Image.network(
               "https://play-lh.googleusercontent.com/5UwL7nXjNKqMAaF9zDyLupztNcoEdppXfWXJYKJMES7CK-rZ-t7bM5gy9p4Gc7qUm-Y",
               fit: BoxFit.fill,
             ),
-            title: Text('Data conmmunication'),
-            subtitle: Text('Cource Code :2020Fci3It313'),
+            title: Text('Data conmmunication',style: TextStyle(fontSize: 18),),
+            subtitle: Text('Cource Code :2020Fci3It313',style: TextStyle(fontSize: 15)),
             trailing: PopupMen(MenuList: [
               PopupMenuItem(
                   child: InkWell(
                 onTap: () {
                   diaglog();
                 },
-                child: ListTile(
+                child: const ListTile(
                   leading: Icon(Icons.remove_red_eye_sharp),
                   title: Text("View"),
                 ),
               )),
-              PopupMenuItem(
+              const PopupMenuItem(
                   child: ListTile(
                 leading: Icon(Icons.edit),
                 title: Text("Edit"),
               )),
-              PopupMenuItem(
+              const PopupMenuItem(
+
                   child: ListTile(
                 leading: Icon(Icons.delete),
                 title: Text("Remove"),
               )),
-            ], icon: Icon(Icons.more_vert_rounded)),
+            ], icon: const Icon(Icons.more_vert_rounded)),
             isThreeLine: true,
           ),
         ),
@@ -83,7 +86,7 @@ class _DoctorCourcesState extends State<DoctorCources>
     TextEditingController CourceCode = TextEditingController();
     double _w = MediaQuery.of(context).size.width;
     var appbar = AppBar(
-      title: const Text("All Cources"),
+      title: const Text("All Courses"),
       centerTitle: true,
     );
     var Myheight = (MediaQuery.of(context).size.height -
@@ -95,7 +98,7 @@ class _DoctorCourcesState extends State<DoctorCources>
         backgroundColor: const Color(0xffF5F5F5),
         body: ListView(
           children: [
-            buildCouce(),
+            SizedBox(child: buildCouce()),
             buildCouce(),
             buildCouce(),
           ],
@@ -105,7 +108,7 @@ class _DoctorCourcesState extends State<DoctorCources>
             CreateCource(context);
           },
           icon: Icon(Icons.add),
-          label: Text("Create Cource"),
+          label: const Text("Create Course"),
         ),
       ),
       //settingIcon(),
@@ -146,7 +149,7 @@ class _DoctorCourcesState extends State<DoctorCources>
             child: const Text("Previous lectures"),
             onPressed: () {
               Navigator.of(context).pushNamed(
-                "History",
+                "DoctorHistory",
               );
             },
           ),
